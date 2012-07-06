@@ -1,0 +1,6 @@
+.buildpath
+.project
+.settings/
+# This files need to be refactored
+hideimportedarticles.php
+manageimportedexpiredate.php
