@@ -2,14 +2,12 @@
 
 [ExpireSettings]
 ClassAttribute[]
-ClassAttribute[]=scheda_mappa/expires
-ClassAttribute[]=articolo/expires
+#ClassAttribute[]=article/expires
+
 
 [PublishSettings]
 ClassAttribute[]
-ClassAttribute[]=scheda_mappa/posted
-ClassAttribute[]=articolo/posted
-
+#ClassAttribute[]=article/posted
 
 
 */?>
