@@ -22,7 +22,7 @@ Settings
 Php classes
 -----------
 
-* timedObjectsFunctionCollection: contains two functions to retrieve informations stored in timed_objects.ini
+* timedObjectsFunctionCollection: contains some functions to retrieve informations stored in timed_objects.ini
 
 
 Events
