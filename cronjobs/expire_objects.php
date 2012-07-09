@@ -4,7 +4,7 @@
  */
 
 $db = eZDB::instance();
-$sql = "SELECT node_id FROM expire_objects WHERE expire_on<=" . time();
+$sql = "SELECT node_id FROM timed_objects WHERE time<=" . time() . " AND type='E'";
 $result = $db->arrayQuery($sql);
 
 eZLog::write('**************************', 'expire_objects.log');
@@ -27,7 +27,7 @@ foreach ($result as $res){
 		eZLog::write('hiding node ' . $node->attribute('node_id'), 'expire_objects.log');
 		if ($node->attribute('is_hidden') == 0)
 			eZContentObjectTreeNode::hideSubTree($node);
-		$sql = "DELETE FROM expire_objects WHERE node_id=" . $node->attribute('node_id');
+		$sql = "DELETE FROM timed_objects WHERE node_id=" . $node->attribute('node_id') . " AND type='E'";
 		$db->query($sql);
 	}
 }

@@ -4,7 +4,7 @@
  */
 
 $db = eZDB::instance();
-$sql = "SELECT node_id FROM timed_objects WHERE time<=" . time();
+$sql = "SELECT node_id FROM timed_objects WHERE time<=" . time() . " AND type='P'";
 $result = $db->arrayQuery($sql);
 
 eZLog::write('**************************', 'publish_objects.log');
@@ -27,7 +27,7 @@ foreach ($result as $res){
 		eZLog::write('unhide node ' . $node->attribute('node_id'), 'publish_objects.log');
 		if ($node->attribute('is_hidden') == 1)
 			eZContentObjectTreeNode::unhideSubTree($node);
-		$sql = "DELETE FROM timed_objects WHERE node_id=" . $node->attribute('node_id');
+		$sql = "DELETE FROM timed_objects WHERE node_id=" . $node->attribute('node_id') . " AND type='P'";
 		$db->query($sql);
 	}
 }

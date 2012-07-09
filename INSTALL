@@ -3,7 +3,7 @@ INSTALL
 
 1. Activate the extension following the standard eZ Publish procedures (remember to regenerate autoloads)
 
-2. Execute the query in sql/mysql/ in your database. Timed_objects.sql will create publishing table. Expire_objects.sql will create expiring table.
+2. Execute the query in sql/mysql/timed_objects.sql in your database.
 
 3. Add the events to the "after publish" trigger
 

@@ -25,9 +25,9 @@ class hideobjectType extends eZWorkflowEventType
 				if ($dataMap[ $settings[$obj->attribute('class_identifier')] ]->attribute('data_int') > time()){
 					eZContentObjectTreeNode::hideSubTree($node);
 					$db = eZDB::instance();
-					$sql = "DELETE FROM timed_objects WHERE node_id = $nodeID";
+					$sql = "DELETE FROM timed_objects WHERE node_id = $nodeID AND type = 'P'";
 					$result = $db->query($sql);
-					$sql = "INSERT INTO timed_objects (node_id, time) VALUES ($nodeID, " . $dataMap[ $settings[$obj->attribute('class_identifier')] ]->attribute('data_int') . ")";
+					$sql = "INSERT INTO timed_objects (node_id, time, type) VALUES ($nodeID, " . $dataMap[ $settings[$obj->attribute('class_identifier')] ]->attribute('data_int') . ", 'P')";
 					$result = $db->query($sql);
 				}else{
 					if ($node->attribute('is_hidden') == 1)

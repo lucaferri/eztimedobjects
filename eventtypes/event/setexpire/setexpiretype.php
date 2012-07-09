@@ -23,9 +23,9 @@ class setexpireType extends eZWorkflowEventType
 				$nodeID = $node->attribute('node_id');
 				$dataMap = $node->dataMap();
 				$db = eZDB::instance();
-				$sql = "DELETE FROM expire_objects WHERE node_id = $nodeID";
+				$sql = "DELETE FROM timed_objects WHERE node_id = $nodeID AND type = 'E'";
 				$db->query($sql);
-				$sql = "INSERT INTO expire_objects (node_id, expire_on) VALUES ($nodeID, " . $dataMap[ $settings[$obj->attribute('class_identifier')] ]->attribute('data_int') . ")";
+				$sql = "INSERT INTO timed_objects (node_id, time, type) VALUES ($nodeID, " . $dataMap[ $settings[$obj->attribute('class_identifier')] ]->attribute('data_int') . ", 'E')";
 				$result = $db->query($sql);
 			}
 		}else{
