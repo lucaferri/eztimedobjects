@@ -30,6 +30,7 @@ Events
 
 * hide object: has to be triggered "after publish" and hides the object if the publication date is in the future
 * set expire: has to be triggered "after publish" and stores informations about expiring date in the db
+* timed objects: contains both hide object and set expire events (usefull if you need both of them)
 
 
 Cronjobs
