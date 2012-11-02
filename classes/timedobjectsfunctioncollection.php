@@ -45,6 +45,7 @@ class timedObjectsFunctionCollection{
 	public static function setPublish( $publishSettings, $node ){
 		$nodeID = $node->attribute('node_id');
 		$dataMap = $node->dataMap();
+		$obj = eZContentObject::fetch($node->attribute('contentobject_id'));
 		if ($dataMap[ $publishSettings[$obj->attribute('class_identifier')] ]->attribute('data_int') > time()){
 			eZContentObjectTreeNode::hideSubTree($node);
 			$db = eZDB::instance();
@@ -67,6 +68,7 @@ class timedObjectsFunctionCollection{
 	public static function setExpire( $expireSettings, $node ){
 		$nodeID = $node->attribute('node_id');
 		$dataMap = $node->dataMap();
+		$obj = eZContentObject::fetch($node->attribute('contentobject_id'));
 		if ($dataMap[ $expireSettings[$obj->attribute('class_identifier')] ]->attribute('data_int') > time()){
 			$db = eZDB::instance();
 			$sql = "DELETE FROM timed_objects WHERE node_id = $nodeID AND type = 'E'";
