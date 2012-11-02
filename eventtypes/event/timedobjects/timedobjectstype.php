@@ -1,7 +1,7 @@
 <?php 
 class timedobjectsType extends eZWorkflowEventType
 {
-	const WORKFLOW_TYPE_STRING = 'setexpire';
+	const WORKFLOW_TYPE_STRING = 'timedobjects';
 	
 	function timedobjectsType()
 	{
