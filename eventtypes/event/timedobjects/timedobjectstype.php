@@ -18,7 +18,7 @@ class timedobjectsType extends eZWorkflowEventType
 		// Manage expiration
 		$settings = timedObjectsFunctionCollection::getExpireSettings();
 		
-		if ( $settings[$obj->attribute('class_identifier')] ){
+		if ( isset($settings[$obj->attribute('class_identifier')]) ){
 			$assignedNodes = $obj->assignedNodes();
 			foreach ($assignedNodes as $node){
 				timedObjectsFunctionCollection::setExpire( $settings, $node );
@@ -31,7 +31,7 @@ class timedobjectsType extends eZWorkflowEventType
 		// Manage publication
 		$settings = timedObjectsFunctionCollection::getPublishSettings();
 		
-		if ( $settings[$obj->attribute('class_identifier')] ){
+		if ( isset($settings[$obj->attribute('class_identifier')]) ){
 			$assignedNodes = $obj->assignedNodes();
 			foreach ($assignedNodes as $node){
 				timedObjectsFunctionCollection::setPublish($settings, $node);

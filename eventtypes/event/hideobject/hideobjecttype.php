@@ -17,7 +17,7 @@ class hideobjectType extends eZWorkflowEventType
 		
 		$settings = timedObjectsFunctionCollection::getPublishSettings();
 		
-		if ( $settings[$obj->attribute('class_identifier')] ){
+		if ( isset($settings[$obj->attribute('class_identifier')]) ){
 			$assignedNodes = $obj->assignedNodes();
 			foreach ($assignedNodes as $node){
 				timedObjectsFunctionCollection::setPublish($settings, $node);

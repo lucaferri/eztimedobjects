@@ -17,7 +17,7 @@ class setexpireType extends eZWorkflowEventType
 		
 		$settings = timedObjectsFunctionCollection::getExpireSettings();
 		
-		if ( $settings[$obj->attribute('class_identifier')] ){
+		if ( isset($settings[$obj->attribute('class_identifier')]) ){
 			$assignedNodes = $obj->assignedNodes();
 			foreach ($assignedNodes as $node){
 				timedObjectsFunctionCollection::setExpire( $settings, $node );
