@@ -1,15 +1,17 @@
 eztimedobjects extension for eZ Publish
 ========================================
 
-An extension that enable users to manage timed pubblication and expiration of the objects inside eZ Publish.
+This extension enables users to manage timed pubblication and expiration of the objects inside eZ Publish.
 
-This extension enable the user to choose which classes have to be publish through this workflow and which are the date attributes to use to establish publish and expire dates.
+The extension allows users to choose which classes have to be publish through this workflow and which are the date attributes to use to get publish and expire dates.
 
 
 Prerequisites
 -------------
 
-PHP 5 / eZP 4.4+ / MySQL
+PHP 5.3+  
+eZ Publish 4.4+ / 5.0+ (Legacy stack)  
+MySQL 5  
 See INSTALL for installation details
 
 

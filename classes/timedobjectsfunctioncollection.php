@@ -2,21 +2,27 @@
 
 class timedObjectsFunctionCollection{
 	
-	// Get ExpireSettings from timed_objects.ini.append.php
+	/**
+     * Get ExpireSettings from timed_objects.ini.append.php
+     * @return Array hash of ini configurations
+     */
 	public static function getExpireSettings(){
 		return timedObjectsFunctionCollection::getSettings('Expire');
 	}
 	
-	// Get PublishSettings from timed_objects.ini.append.php
+	/**
+     *  Get PublishSettings from timed_objects.ini.append.php
+     *  @return Array hash of ini configurations
+     */
 	public static function getPublishSettings(){
 		return timedObjectsFunctionCollection::getSettings('Publish');
 	}
 	
-	/*
-	* Get Settings from timed_objects.ini.append.php
-	* @params $type: could be 'Expire' or 'Publish'
-	* @return hash of ini configuration
-	*/
+	/**
+	 * Get Settings from timed_objects.ini.append.php
+	 * @param String $type could be 'Expire' or 'Publish'
+	 * @return Array hash of ini configurations
+	 */
 	public static function getSettings( $type ){
 		
 		// Check if $type parameter is valid
@@ -36,12 +42,11 @@ class timedObjectsFunctionCollection{
 		return $return;
 	}
 	
-	/*
-	* This function manage publications (used inside hideobjecttype.php)
-	* @params $publishSettings: settings read from ini
-	* @params $node: node to publish
-	* @return void
-	*/
+	/**
+	 * This function manage publications (used inside hideobjecttype.php)
+	 * @param Array $publishSettings settings read from ini
+	 * @param eZContentObjectTreeNode $node node to publish
+	 */
 	public static function setPublish( $publishSettings, $node ){
 		$nodeID = $node->attribute('node_id');
 		$dataMap = $node->dataMap();
@@ -59,12 +64,11 @@ class timedObjectsFunctionCollection{
 		}
 	}
 	
-	/*
-	* This function manage expiration (used inside hideobjecttype.php)
-	* @params $publishSettings: settings read from ini
-	* @params $node: node to expire
-	* @return void
-	*/
+	/**
+	 * This function manage expiration (used inside hideobjecttype.php)
+	 * @param Array $publishSettings settings read from ini
+	 * @param eZContentObjectTreeNode $node node to expire
+	 */
 	public static function setExpire( $expireSettings, $node ){
 		$nodeID = $node->attribute('node_id');
 		$dataMap = $node->dataMap();
